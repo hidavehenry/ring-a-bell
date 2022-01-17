@@ -1,23 +1,29 @@
-import logo from './logo.svg';
 import './App.css';
+import { useEffect, useState } from 'react'
+
+const cardImages = [
+  {"src": "/assets/bajaBlast.png"}
+  {"src": "/assets/beefBurritoSupreme.png"}
+  {"src": "/assets/beefChalupaSupreme.png"}
+  {"src": "/assets/borderSauce.png"}
+  {"src": "/assets/chickenBurritoSupreme.png"}
+  {"src": "/assets/chickenSoftTaco.png"}
+  {"src": "/assets/cinnamonTwists.png"}
+  {"src": "/assets/crunchwrapSupreme.png"}
+  {"src": "/assets/friesSupreme.png"}
+  {"src": "/assets/loadedNachoTaco.png"}
+  {"src": "/assets/nachosSupreme.png"}
+  {"src": "/assets/quesalupa.png"}
+  {"src": "/assets/steakQuesadilla.png"}
+]
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h2>Ring A Bell?</h2>
+      <button className="button">New Game</button>
+      <div>Turns: </div>
+      <div>Matches: </div>
     </div>
   );
 }
