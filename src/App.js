@@ -3,19 +3,19 @@ import { useEffect, useState } from 'react'
 import Card from './Card'
 
 const cardImages = [
-  {"src": "/assets/bajaBlast.png"},
-  {"src": "/assets/beefBurritoSupreme.png"},
-  {"src": "/assets/beefChalupaSupreme.png"},
-  {"src": "/assets/borderSauce.png"},
-  {"src": "/assets/chickenBurritoSupreme.png"},
-  {"src": "/assets/chickenSoftTaco.png"},
-  {"src": "/assets/cinnamonTwists.png"},
-  {"src": "/assets/crunchwrapSupreme.png"},
-  {"src": "/assets/friesSupreme.png"},
-  {"src": "/assets/loadedNachoTaco.png"},
-  {"src": "/assets/nachosSupreme.png"},
-  {"src": "/assets/quesalupa.png"},
-  {"src": "/assets/steakQuesadilla.png"}
+  {"src": "/assets/bajaBlast.png", matched: false },
+  {"src": "/assets/beefBurritoSupreme.png", matched: false },
+  {"src": "/assets/beefChalupaSupreme.png", matched: false },
+  {"src": "/assets/borderSauce.png", matched: false },
+  {"src": "/assets/chickenBurritoSupreme.png", matched: false },
+  {"src": "/assets/chickenSoftTaco.png", matched: false },
+  {"src": "/assets/cinnamonTwists.png", matched: false },
+  {"src": "/assets/crunchwrapSupreme.png", matched: false },
+  {"src": "/assets/friesSupreme.png", matched: false },
+  {"src": "/assets/loadedNachoTaco.png", matched: false },
+  {"src": "/assets/nachosSupreme.png", matched: false },
+  {"src": "/assets/quesalupa.png", matched: false },
+  {"src": "/assets/steakQuesadilla.png", matched: false }
 ]
 
 function App() {
