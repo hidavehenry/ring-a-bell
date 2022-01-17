@@ -11,7 +11,6 @@ const cardImages = [
   {"src": "/assets/chickenSoftTaco.png", matched: false },
   {"src": "/assets/cinnamonTwists.png", matched: false },
   {"src": "/assets/crunchwrapSupreme.png", matched: false },
-  {"src": "/assets/friesSupreme.png", matched: false },
   {"src": "/assets/loadedNachoTaco.png", matched: false },
   {"src": "/assets/nachosSupreme.png", matched: false },
   {"src": "/assets/quesalupa.png", matched: false },
@@ -24,6 +23,7 @@ function App() {
   const [matches, setMatches] = useState([])
   const [selectedOne, setSelectedOne] = useState(null)
   const [selectedTwo, setSelectedTwo] = useState(null)
+  const [disabled, setDisabled] = useState(false)
 
 
   // make new array with two sets of cards then shuffle
@@ -33,6 +33,8 @@ function App() {
       .sort(() => Math.random() - 0.5)
       .map((card) => ({ ...card, id: Math.random() }))
       
+      setSelectedOne(null)
+      setSelectedTwo(null)
       setCards(shuffledDeck)
       setTurns(0)
       setMatches(0)
@@ -46,6 +48,7 @@ function App() {
     // check for match
     useEffect(() => {
       if (selectedOne && selectedTwo) {
+        setDisabled(true)
         if (selectedOne.src === selectedTwo.src) {
           setCards(prevCards => {
             return prevCards.map(card => {
@@ -59,32 +62,43 @@ function App() {
           resetTurn()
           setMatches(prevMatches => prevMatches +1)
         } else {
-          resetTurn()
+          setTimeout(() => resetTurn(), 1200)
         }
       }
     }, [selectedOne, selectedTwo])
-
-    console.log(cards)
 
     // reset selected cards and increase turn count
     const resetTurn = () => {
       setSelectedOne(null)
       setSelectedTwo(null)
       setTurns(prevTurns => prevTurns + 1)
+      setDisabled(false)
     }
+
+    // initiate game upon mount
+    useEffect(() => {
+      shuffleDeck()
+    }, [])
 
   return (
     <div className="App">
-      <h1>Ring A Bell?</h1>
-      <button className="button" onClick={shuffleDeck}>New Game</button>
-      <p>Turns: {turns} </p>
-      <p>Matches: {matches}</p>
-
+      <h1 className="title">Ring A Bell?</h1>
+      <div className="game-stats">
+        <p>Turns: {turns} </p>
+        <p>Matches: {matches}</p>
+      </div>
       <div className="game-board">
         {cards.map(card => (
-          <Card key={card.id} card={card} handleChoice={handleChoice} />
+          <Card 
+          key={card.id} 
+          card={card} 
+          handleChoice={handleChoice} 
+          flipped={card === selectedOne || card === selectedTwo || card.matched}
+          disabled={disabled}
+          />
         ))}
       </div>
+      <button className="button" onClick={shuffleDeck}>New Game</button>
     </div>
   );
 }

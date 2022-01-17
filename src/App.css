@@ -1,4 +1,37 @@
+.App {
+  max-width: 860px;
+  margin: 40px auto;
+}
+
+.title {
+  text-align: center;
+}
+
 .game-board {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 20px;
+}
+
+.game-stats {
+  display: flex;
+  flex-direction: row;  
+  justify-content: space-between;
+  margin: 40px 0 20px 0;
+}
+
+.button {
+  padding: 6px 15px;
+  border-radius: 6px;
+  color: #30023b;
+  background: none;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1em;
+  margin: 40px 0;
+}
+
+.button:hover {
+  background: #30023b;
+  color: #fff
 }
