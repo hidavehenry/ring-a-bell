@@ -47,15 +47,24 @@ function App() {
     useEffect(() => {
       if (selectedOne && selectedTwo) {
         if (selectedOne.src === selectedTwo.src) {
-          console.log('matches')
+          setCards(prevCards => {
+            return prevCards.map(card => {
+              if (card.src === selectedOne.src) {
+                return {...card, matched: true}
+              } else {
+                return card
+              }
+            })
+          })
           resetTurn()
           setMatches(prevMatches => prevMatches +1)
         } else {
-          console.log('no match')
           resetTurn()
         }
       }
     }, [selectedOne, selectedTwo])
+
+    console.log(cards)
 
     // reset selected cards and increase turn count
     const resetTurn = () => {
