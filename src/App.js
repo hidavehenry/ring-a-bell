@@ -82,7 +82,11 @@ function App() {
 
   return (
     <div className="App">
-      <h1 className="title">Ring A Bell?</h1>
+      <div className="header">
+        <h1>Ring A Bell?</h1>
+        <p>Put your memory to the test and Live Mas with this tasty matching making game that'll leave you hungry for more!</p>
+      </div>
+      <button className="button" onClick={shuffleDeck}>New Game</button>
       <div className="game-stats">
         <p>Turns: {turns} </p>
         <p>Matches: {matches}</p>
@@ -98,7 +102,6 @@ function App() {
           />
         ))}
       </div>
-      <button className="button" onClick={shuffleDeck}>New Game</button>
     </div>
   );
 }
