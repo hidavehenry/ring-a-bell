@@ -256,15 +256,16 @@ template {
   display: flex;
   flex-direction: row;  
   justify-content: space-around;
-  margin: 40px 0 20px 0;
   padding: 0 30px;
+  font-size: 1.5em;
+  font-weight: bold;
 }
 
 .button {
   padding: 16px 25px;
   border-radius: 6px;
-  color: #30023b;
-  background: #fff;
+  background: #30023b;
+  color: #fff;
   cursor: pointer;
   font-weight: bold;
   font-size: 1em;
@@ -274,6 +275,11 @@ template {
 }
 
 .button:hover {
-  background: #30023b;
-  color: #fff
+  color: #30023b;
+  background: #fff;
+}
+
+.card:hover {
+  cursor: pointer;
+  transform: scale(1.1);
 }
