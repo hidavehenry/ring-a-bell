@@ -229,20 +229,37 @@ template {
 
 /* SETUP SNIPPET END */
 
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+
 :root {
-  background-image: url(../public/assets/tbbg.png);
+  background: var(--white);
+  --darkpurple: #682A8F;
+  --lightpurple: #A07EBA;
+  --white: rgb(247, 244, 244);
+  --black: #000;
 }
 
 .App {
   max-width: 950px;
-  margin: 40px auto;
-  background: rgb(255, 255, 255);
+  margin: 20px auto;
+  background: var(--white);
   border-radius: 5px;
 }
 
 .header {
   text-align: center;
-  padding: 20px 25px;
+  padding: 5px 20px;
+}
+
+.header h1 {
+  font-family: 'Black Han Sans', sans-serif;
+  font-size: 70px;
+  color: var(--darkpurple);
+}
+
+.header p {
+  font-size: 20px;
+  padding: 0 80px;
 }
 
 .game-board {
@@ -250,7 +267,11 @@ template {
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 20px;
   padding: 20px;
+  border-radius: 6px;
+  border: 2px solid var(--darkpurple);
+  background-image: url(../public/assets/tbbg.png);
 }
+
 
 .game-stats {
   display: flex;
@@ -264,8 +285,8 @@ template {
 .button {
   padding: 16px 25px;
   border-radius: 6px;
-  background: #30023b;
-  color: #fff;
+  background: var(--darkpurple);
+  color: var(--white);
   cursor: pointer;
   font-weight: bold;
   font-size: 1em;
@@ -275,11 +296,21 @@ template {
 }
 
 .button:hover {
-  color: #30023b;
-  background: #fff;
+  color: var(--darkpurple);
+  background: var(--white);
 }
 
 .card:hover {
   cursor: pointer;
   transform: scale(1.1);
+}
+
+.footer {
+  margin: 50px;
+  text-align: center;
+}
+
+.footer a {
+  text-decoration: none;
+  color: var(--black);
 }
