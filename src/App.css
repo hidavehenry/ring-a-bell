@@ -324,3 +324,10 @@ template {
   text-decoration: none;
   color: var(--black);
 }
+
+@media only screen and (max-width: 480px) {
+  .game-board {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+  }
+}
