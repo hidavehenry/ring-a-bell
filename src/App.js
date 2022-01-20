@@ -102,7 +102,7 @@ function App() {
           />
         ))}
       </div>
-      <div className="footer">Developed by <a href="https://www.devhenry.com/" target="_blank">Dave Henry</a> 2022.</div>
+      <div className="footer">Developed by <a href="https://www.devhenry.com/" target="_blank" rel="noreferrer">Dave Henry</a> 2022.</div>
     </div>
   );
 }
