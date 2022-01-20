@@ -235,7 +235,7 @@ template {
   background: var(--white);
   --darkpurple: #682A8F;
   --lightpurple: #A07EBA;
-  --white: rgb(247, 244, 244);
+  --white: #fcfafa;
   --black: #000;
 }
 
@@ -255,7 +255,7 @@ template {
   font-family: 'Black Han Sans', sans-serif;
   font-size: 70px;
   color: var(--darkpurple);
-  text-shadow: 5px 5px black;
+  text-shadow: 4px 4px var(--black);
 }
 
 .header p {
