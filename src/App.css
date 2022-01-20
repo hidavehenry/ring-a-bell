@@ -255,6 +255,7 @@ template {
   font-family: 'Black Han Sans', sans-serif;
   font-size: 70px;
   color: var(--darkpurple);
+  text-shadow: 5px 5px black;
 }
 
 .header p {
