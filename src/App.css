@@ -338,6 +338,10 @@ template {
   box-shadow: 0px 0px 0px;
 }
 
+.gameover {
+  text-align: center;
+}
+
 .footer {
   margin: 50px;
   text-align: center;

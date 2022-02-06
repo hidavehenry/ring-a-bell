@@ -25,6 +25,7 @@ function App() {
   const [selectedTwo, setSelectedTwo] = useState(null)
   const [disabled, setDisabled] = useState(false)
   const [level, setLevel] = useState(null)
+  const [gameOver, setGameOver] = useState(false)
 
   
   
@@ -35,8 +36,7 @@ function App() {
     const shuffledDeck = [...cardImages.slice(level), ...cardImages.slice(level)]
     .sort(() => Math.random() - 0.5)
     .map((card) => ({ ...card, id: Math.random() }))
-    
-    console.log(shuffledDeck)
+
     setSelectedOne(null)
     setSelectedTwo(null)
     setCards(shuffledDeck)
@@ -50,6 +50,7 @@ function App() {
 
   const newGame = () => {
     setLevel(null)
+    setGameOver(false)
   }
 
     // easy = 6, medium = 8, hard = 12
@@ -84,6 +85,17 @@ function App() {
       }
     }, [selectedOne, selectedTwo])
 
+    const matchCheck = () => {
+      if (matches === (cardImages.slice(level).length)) {
+        setGameOver(true)
+      } else {
+      }
+    }
+
+    useEffect(() => {
+      matchCheck()
+    }, [matches])
+
     // reset selected cards and increase turn count
     const resetTurn = () => {
       setSelectedOne(null)
@@ -104,7 +116,7 @@ function App() {
         <p>Put your memory to the test and Live Mas with this tasty matching making game that'll leave you hungry for more!</p>
       </div>  
 
-      {!level && (
+      {!level && !gameOver && (
       <div className="dropdown">
         <h2>How much heat can you handle:</h2>
         <select className="dropdown-options" onChange={handleChange}>
@@ -116,7 +128,7 @@ function App() {
       </div>
       )}
 
-    {level && (
+    {level && !gameOver && (
       <>
         <div className="game-stats">
           <p>Turns: {turns} </p>
@@ -134,6 +146,16 @@ function App() {
             ))}
         </div>
         <button className="button" onClick={newGame}>New Game</button>
+      </>
+    )}
+    {gameOver && (
+      <>
+        <div className="gameover">
+          <h1>GAME OVER!</h1>
+          <p>You got {matches} matches in {turns} turns</p>
+          <p>Well done!</p>
+          <button className="button" onClick={newGame}>Play Again?</button>
+        </div>
       </>
     )}
       <div className="footer">Developed by <a href="https://www.devhenry.com/" target="_blank" rel="noreferrer">Dave Henry</a> 2022.
