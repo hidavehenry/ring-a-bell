@@ -24,22 +24,39 @@ function App() {
   const [selectedOne, setSelectedOne] = useState(null)
   const [selectedTwo, setSelectedTwo] = useState(null)
   const [disabled, setDisabled] = useState(false)
+  const [level, setLevel] = useState(null)
 
-
+  
+  
+  
   // make new array with two sets of cards then shuffle
-
+  
   const shuffleDeck = () => {
-    const shuffledDeck = [...cardImages, ...cardImages]
-      .sort(() => Math.random() - 0.5)
-      .map((card) => ({ ...card, id: Math.random() }))
-      
-      setSelectedOne(null)
-      setSelectedTwo(null)
-      setCards(shuffledDeck)
-      setTurns(0)
-      setMatches(0)
-    }
+    const shuffledDeck = [...cardImages.slice(level), ...cardImages.slice(level)]
+    .sort(() => Math.random() - 0.5)
+    .map((card) => ({ ...card, id: Math.random() }))
     
+    console.log(shuffledDeck)
+    setSelectedOne(null)
+    setSelectedTwo(null)
+    setCards(shuffledDeck)
+    setTurns(0)
+    setMatches(0)
+  }
+
+  useEffect(() => {
+    shuffleDeck()
+  },[level])
+
+  const newGame = () => {
+    setLevel(null)
+  }
+
+    // easy = 6, medium = 8, hard = 12
+    const handleChange = (e) => {
+      setLevel(e.target.value)
+    }
+
     // store the selected cards
     const handleChoice = (card) => {
       selectedOne ? setSelectedTwo(card) : setSelectedOne(card)
@@ -75,7 +92,7 @@ function App() {
       setDisabled(false)
     }
 
-    // initiate game upon mount
+    //initiate game upon mount
     useEffect(() => {
       shuffleDeck()
     }, [])
@@ -85,24 +102,42 @@ function App() {
       <div className="header">
         <h1>Ring A Bell?</h1>
         <p>Put your memory to the test and Live Mas with this tasty matching making game that'll leave you hungry for more!</p>
+      </div>  
+
+      {!level && (
+      <div className="dropdown">
+        <h2>How much heat can you handle:</h2>
+        <select className="dropdown-options" onChange={handleChange}>
+          <option value="null">Pick one</option>
+          <option value="6">Mild</option>
+          <option value="3">Medium</option>
+          <option value="0">Hot</option>
+        </select>
       </div>
-      <button className="button" onClick={shuffleDeck}>New Game</button>
-      <div className="game-stats">
-        <p>Turns: {turns} </p>
-        <p>Matches: {matches}</p>
+      )}
+
+    {level && (
+      <>
+        <div className="game-stats">
+          <p>Turns: {turns} </p>
+          <p>Matches: {matches}</p>
+        </div>
+        <div className="game-board">
+          {cards.map(card => (
+            <Card 
+            key={card.id} 
+            card={card} 
+            handleChoice={handleChoice} 
+            flipped={card === selectedOne || card === selectedTwo || card.matched}
+            disabled={disabled}
+            />
+            ))}
+        </div>
+        <button className="button" onClick={newGame}>New Game</button>
+      </>
+    )}
+      <div className="footer">Developed by <a href="https://www.devhenry.com/" target="_blank" rel="noreferrer">Dave Henry</a> 2022.
       </div>
-      <div className="game-board">
-        {cards.map(card => (
-          <Card 
-          key={card.id} 
-          card={card} 
-          handleChoice={handleChoice} 
-          flipped={card === selectedOne || card === selectedTwo || card.matched}
-          disabled={disabled}
-          />
-        ))}
-      </div>
-      <div className="footer">Developed by <a href="https://www.devhenry.com/" target="_blank" rel="noreferrer">Dave Henry</a> 2022.</div>
     </div>
   );
 }

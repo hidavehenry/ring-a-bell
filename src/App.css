@@ -263,14 +263,35 @@ template {
   padding: 0 80px;
 }
 
+.dropdown {
+  text-align: center;
+}
+
+.dropdown-options {
+  padding: 16px 25px;
+  border-radius: 6px;
+  background: var(--darkpurple);
+  color: var(--white);
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1em;
+  display: block;
+  margin: 0 auto;
+  margin-top: 20px;
+  border: 2px solid var(--darkpurple);
+  transition: 0.9s;
+}
+
 .game-board {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 20px;
-  padding: 20px;
+  padding: 25px;
+  margin: 10px;
   border-radius: 6px;
   border: 2px solid var(--darkpurple);
   background-image: url(../public/assets/tbbg.png);
+  transition: .8s;
 }
 
 
@@ -295,12 +316,14 @@ template {
   margin: 0 auto;
   margin-top: 20px;
   border: 2px solid var(--darkpurple);
+  transition: 0.2s;
 }
 
 .button:hover {
   color: var(--darkpurple);
   background: var(--white);
   border: 2px solid var(--darkpurple);
+  transition: 0.2s;
 }
 
 .card {
@@ -323,11 +346,41 @@ template {
 .footer a {
   text-decoration: none;
   color: var(--black);
+  transition: 0.3s;
 }
 
-@media only screen and (max-width: 480px) {
+.footer a:hover {
+  color: var(--darkpurple);
+  transition: 0.3s;
+}
+
+@media only screen and (max-width: 680px) {
+
+  h1 {
+    margin: 20px;
+  }
+
+  .game-board {
+    grid-gap: 10px;
+    padding: 10px;
+    transition: .8s;
+  }
+}
+
+@media only screen and (max-width: 580px) {
+
+  h1 {
+    margin: 20px;
+  }
+
+  .game-stats {
+    padding: 0 20px;
+    font-size: 1.1em;
+  }
+
   .game-board {
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 10px;
+    padding: 10px;
   }
 }
