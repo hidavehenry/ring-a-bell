@@ -160,7 +160,13 @@ function App() {
         </div>
       </>
     )}
-      <div className="footer">Developed by <a href="https://www.devhenry.com/" target="_blank" rel="noreferrer">Dave Henry</a> 2022.
+      <div className="footer">
+        <p>
+          Developed by <a href="https://www.devhenry.com/" target="_blank" rel="noreferrer">Dave Henry</a> 2022
+        </p>
+        {gameOver && (<p>
+          Emoji rain by <a href="https://github.com/DannyLarn/forever2020" target="_blank" rel="noreferrer">Dnyyy</a>
+        </p>)}
       </div>
     </div>
   );

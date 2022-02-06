@@ -355,6 +355,10 @@ template {
   transition: 0.3s;
 }
 
+.footer p:nth-child(2) {
+  font-size: .8rem;
+}
+
 @media only screen and (max-width: 680px) {
 
   h1 {
