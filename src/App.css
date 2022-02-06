@@ -269,17 +269,14 @@ template {
 
 .dropdown-options {
   padding: 16px 25px;
-  border-radius: 6px;
+  border-radius: 10px;
   background: var(--darkpurple);
   color: var(--white);
-  cursor: pointer;
-  font-weight: bold;
   font-size: 1em;
   display: block;
   margin: 0 auto;
   margin-top: 20px;
   border: 2px solid var(--darkpurple);
-  transition: 0.9s;
 }
 
 .game-board {

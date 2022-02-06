@@ -120,7 +120,7 @@ function App() {
       <div className="dropdown">
         <h2>How much heat can you handle:</h2>
         <select className="dropdown-options" onChange={handleChange}>
-          <option value="null">Pick one</option>
+          <option value="null">Pick one:</option>
           <option value="6">Mild</option>
           <option value="3">Medium</option>
           <option value="0">Hot</option>
