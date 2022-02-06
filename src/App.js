@@ -1,6 +1,7 @@
 import './App.css';
 import { useEffect, useState } from 'react'
 import Card from './Card'
+import { FallingEmojis } from 'falling-emojis';
 
 const cardImages = [
   {"src": "/assets/bajaBlast.png", matched: false },
@@ -150,6 +151,7 @@ function App() {
     )}
     {gameOver && (
       <>
+      <FallingEmojis emoji={'🌮🎉'} />
         <div className="gameover">
           <h1>GAME OVER!</h1>
           <p>You got {matches} matches in {turns} turns</p>
