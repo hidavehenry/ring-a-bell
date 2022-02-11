@@ -229,7 +229,9 @@ template {
 
 /* SETUP SNIPPET END */
 
-@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Road+Rage&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Skranji&display=swap');
 
 :root {
   background: var(--white);
@@ -248,23 +250,29 @@ template {
 
 .header {
   text-align: center;
-  padding: 5px 20px;
+  padding: 0px 10px;
 }
 
 .header h1 {
-  font-family: 'Black Han Sans', sans-serif;
-  font-size: 70px;
+  font-family: 'Road Rage', cursive;
+  font-size: 130px;
   color: var(--darkpurple);
-  text-shadow: 4px 4px var(--black);
+  text-shadow: 2px 2px var(--black);
+  margin: 10px 20px;
 }
 
 .header p {
   font-size: 20px;
-  padding: 0 80px;
+  padding: 10px 40px;
+}
+
+h2 {
+  font-family: 'Skranji', cursive;
 }
 
 .dropdown {
   text-align: center;
+  padding: 10px 40px;
 }
 
 .dropdown-options {
@@ -297,8 +305,6 @@ template {
   flex-direction: row;  
   justify-content: space-around;
   padding: 0 30px;
-  font-size: 1.5em;
-  font-weight: bold;
 }
 
 .button {
@@ -337,6 +343,15 @@ template {
 
 .gameover {
   text-align: center;
+}
+
+.gameover h2 {
+  font-size: 2.5em;
+}
+
+span {
+  font-weight: bold;
+  font-size: 1.3em;
 }
 
 .footer {

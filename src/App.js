@@ -114,7 +114,9 @@ function App() {
     <div className="App">
       <div className="header">
         <h1>Ring A Bell?</h1>
-        <p>Put your memory to the test and Live Mas with this tasty matching making game that'll leave you hungry for more!</p>
+       { !gameOver && (
+         <p>Put your memory to the test and Live Mas with this tasty matching making game that'll leave you hungry for more!</p>
+         )} 
       </div>  
 
       {!level && !gameOver && (
@@ -132,8 +134,8 @@ function App() {
     {level && !gameOver && (
       <>
         <div className="game-stats">
-          <p>Turns: {turns} </p>
-          <p>Matches: {matches}</p>
+          <h2>Turns: {turns} </h2>
+          <h2>Matches: {matches}</h2>
         </div>
         <div className="game-board">
           {cards.map(card => (
@@ -153,8 +155,8 @@ function App() {
       <>
       <FallingEmojis emoji={'🌮🎉'} />
         <div className="gameover">
-          <h1>GAME OVER!</h1>
-          <p>You got {matches} matches in {turns} turns</p>
+          <h2>GAME OVER!</h2>
+          <p>You got <span>{matches}</span> matches in <span>{turns}</span> turns</p>
           <p>Well done!</p>
           <button className="button" onClick={newGame}>Play Again?</button>
         </div>
