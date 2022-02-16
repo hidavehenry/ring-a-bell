@@ -81,14 +81,14 @@ function App() {
           resetTurn()
           setMatches(prevMatches => prevMatches +1)
         } else {
-          setTimeout(() => resetTurn(), 1200)
+          setTimeout(() => resetTurn(), 900)
         }
       }
     }, [selectedOne, selectedTwo])
 
     const matchCheck = () => {
       if (matches === (cardImages.slice(level).length)) {
-        setGameOver(true)
+        setTimeout(() => setGameOver(true), 900)
       } else {
       }
     }
